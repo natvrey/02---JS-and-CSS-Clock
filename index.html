@@ -7,9 +7,17 @@
   <body>
     <div class="clock">
       <p class="numbers twelve">12</p>
+      <p class="numbers one">1</p>
+      <p class="numbers two">2</p>
       <p class="numbers three">3</p>
+      <p class="numbers four">4</p>
+      <p class="numbers five">5</p>
       <p class="numbers six">6</p>
+      <p class="numbers seven">7</p>
+      <p class="numbers eight">8</p>
       <p class="numbers nine">9</p>
+      <p class="numbers ten">10</p>
+      <p class="numbers eleven">11</p>
 
       <div class="clock-face">
         <div class="hand hour-hand"></div>
@@ -20,7 +28,7 @@
 
     <style>
       html {
-        background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+        background-color: black;
         background-size: cover;
         font-family: "helvetica neue";
         text-align: center;
@@ -39,11 +47,11 @@
       .clock {
         width: 30rem;
         height: 30rem;
-        border: 20px solid white;
+        border: 20px solid blue;
         border-radius: 50%;
         margin: 50px auto;
         position: relative;
-        padding: 6rem;
+        padding: 9rem;
         box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
           inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
       }
@@ -60,7 +68,7 @@
       .hand {
         width: 50%;
         height: 6px;
-        background: black;
+        background: red;
         position: absolute;
         top: 50%;
         transform-origin: 100%;
@@ -70,41 +78,53 @@
       }
       .numbers {
         font-size: 30px;
+        color: white;
       }
 
       .three {
-        position: absolute;
-        left: 304px;
-        top: 152px;
+        /* position: absolute;
+        left: 439px;
+        top: 192px; */
       }
 
       .six {
-        position: absolute;
-        left: 164px;
-        top: 275px;
+        /* position: absolute;
+        left: 222px;
+        top: 376px; */
       }
 
       .nine {
-        position: absolute;
-        left: 25px;
-        top: 152px;
+        /* position: absolute;
+        left: 28px;
+        top: 192px; */
       }
 
       .twelve {
-        position: absolute;
-        left: 196px;
-        top: -4px;
+        /* position: absolute;
+        left: 222px;
+        top: -1px; */
       }
     </style>
 
     <script>
       const secondHand = document.querySelector(".second-hand");
+      const minsHand = document.querySelector(".min-hand");
+      const hourHand = document.querySelector(".hour-hand");
 
       function setDate() {
         const now = new Date();
+
         const seconds = now.getSeconds();
         const secondsDegrees = (seconds / 60) * 360 + 90;
         secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+        const mins = now.getMinutes();
+        const minsDegrees = (mins / 60) * 360 + 90;
+        minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
+
+        const hour = now.getHours();
+        const hourDegrees = (hour / 12) * 360 + 90;
+        hourHand.style.transform = `rotate(${hourDegrees}deg)`;
       }
 
       setInterval(setDate, 1000);
