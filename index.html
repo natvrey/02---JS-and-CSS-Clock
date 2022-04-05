@@ -27,14 +27,20 @@
     </div>
 
     <style>
-      html {
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+      }
+      /* html {
         background-color: black;
         background-size: cover;
         font-family: "helvetica neue";
         text-align: center;
         font-size: 10px;
-      }
+      } */
 
+      /* og body
       body {
         margin: 0;
         font-size: 2rem;
@@ -42,10 +48,45 @@
         flex: 1;
         min-height: 100vh;
         align-items: center;
+      } */
+
+      body {
+        background: linear-gradient(
+          to right,
+          hsl(40, 100%, 50%),
+          hsl(203, 100%, 50%)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow: hidden;
+        min-width: 100vw;
+      }
+
+      .clock .numbers {
+        --rotation: 0;
+        position: absolute;
+        width: 100%;
+        /* height: 100%; */
+        height: 85%;
+        text-align: center;
+        transform: rotate(var(--rotation));
+        font-size: 1.5rem;
       }
 
       .clock {
-        width: 30rem;
+        width: 300px;
+        height: 300px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        border: 2px solid black;
+        position: relative;
+      }
+
+      /* .clock { */
+      /* og clock */
+      /* width: 30rem;
         height: 30rem;
         border: 20px solid blue;
         border-radius: 50%;
@@ -53,16 +94,18 @@
         position: relative;
         padding: 9rem;
         box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
-          inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
-      }
+          inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2); */
+      /* } */
 
       .clock-face {
         position: relative;
-        width: 100%;
+        width: 68%;
         height: 100%;
         transform: translateY(
           10px
         ); /* account for the height of the clock hands */
+
+        margin-left: 47px;
       }
 
       .hand {
@@ -77,32 +120,42 @@
         transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
       }
       .numbers {
-        font-size: 30px;
-        color: white;
+        font-size: 20px;
+        color: black;
       }
 
-      .three {
-        /* position: absolute;
-        left: 439px;
-        top: 192px; */
+      .clock .one {
+        --rotation: 30deg;
       }
-
-      .six {
-        /* position: absolute;
-        left: 222px;
-        top: 376px; */
+      .clock .two {
+        --rotation: 60deg;
       }
-
-      .nine {
-        /* position: absolute;
-        left: 28px;
-        top: 192px; */
+      .clock .three {
+        --rotation: 90deg;
       }
-
-      .twelve {
-        /* position: absolute;
-        left: 222px;
-        top: -1px; */
+      .clock .four {
+        --rotation: 120deg;
+      }
+      .clock .five {
+        --rotation: 150deg;
+      }
+      .clock .six {
+        --rotation: 180deg;
+      }
+      .clock .seven {
+        --rotation: 210deg;
+      }
+      .clock .eight {
+        --rotation: 240deg;
+      }
+      .clock .nine {
+        --rotation: 270deg;
+      }
+      .clock .ten {
+        --rotation: 300deg;
+      }
+      .clock .eleven {
+        --rotation: 330deg;
       }
     </style>
 
